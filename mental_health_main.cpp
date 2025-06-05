@@ -232,7 +232,9 @@ void showQuoteForEmotionRobust(const std::string& emotion, const json& books) {
     int entryCount = 0;
     int topScores[3] = {INT_MIN, INT_MIN, INT_MIN};
         json topQoutes[3]; 
-    
+    std::srand(std::time(0));
+
+
     for (const nlohmann::json& entry : books) {
         entryCount++;
        
@@ -261,25 +263,32 @@ void showQuoteForEmotionRobust(const std::string& emotion, const json& books) {
                 }
                     
                 }
-                        // Zufälligen aus den besten auswählen
-            std::srand(std::time(0));
-            int available = (topScores[1] == INT_MIN) ? 1 : (topScores[2] == INT_MIN ? 2 : 3);
-            int randomIndex = std::rand() % available;
-
-            json& selectedQuote = topQoutes[randomIndex];
-                std::cout << "\n✅ MATCH FOUND at entry " << entryCount << "!" << std::endl;
-                std::cout << "\nQuote that matches your emotion\n";
-                std::cout << "\"" << entry["quote"] << "\"" << std::endl;
-                std::cout << "- " << entry["author"] << ", " << entry["book"] << ", " << entry["emotion"] << ", " << entry["positive"] << ", " << entry["negative"] << std::endl;
+                
+           
                 found = true;
             }
         }
     }
-    
-    if (!found) {
+        
+    if(found) {
+         int available = (topScores[1] == INT_MIN) ? 1 : (topScores[2] == INT_MIN ? 2 : 3);
+            int randomIndex = std::rand() % available;
+
+            json& selectedQuote = topQoutes[randomIndex];
+                  std::cout << "\n✅ MATCH FOUND!" << std::endl;
+                std::cout << "\nQuote that matches your emotion:\n";
+                std::cout << "\"" << selectedQuote["quote"] << "\"" << std::endl;
+                std::cout << "- " << selectedQuote["author"] << ", " << selectedQuote["book"] 
+              << ", Emotion: " << selectedQuote["emotion"]
+              << ", +: " << selectedQuote["positive"] 
+              << ", -: " << selectedQuote["negative"] << std::endl;
+    }
+
+    else 
+    {
         std::cout << "\n❌ No matching quote found for emotion '" << emotion << "'" << std::endl;
     }
-}
+    }
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);
