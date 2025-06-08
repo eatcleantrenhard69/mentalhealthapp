@@ -1,624 +1,442 @@
 [
     {
-      "emotion": "discouraged",
       "quote": "The obstacle in the path becomes the path. Never forget, within every obstacle is an opportunity to improve our condition.",
       "author": "Ryan Holiday",
-      "book": "The Obstacle Is the Way",
-      "positive" :0, 
-      "negative": 0
+      "book": "The Obstacle Is the Way"
+
     },
     {
-      "emotion": "stuck",
       "quote": "What if you regarded it as an opportunity instead of a disaster?",
       "author": "Ryan Holiday",
-      "book": "The Obstacle Is the Way",
-      "positive" :0, 
-      "negative": 0
+      "book": "The Obstacle Is the Way"
+
     },
    
       {
         "quote": "You can always remind yourself: I am in control, not my emotions.",
         "author": "Ryan Holiday",
-        "book": "The Obstacle Is the Way",
-        "emotion": "panic",
-        "positive" : 0, 
-      "negative":  0
+        "book": "The Obstacle Is the Way"
       },
       {
         "quote": "Real strength lies in the control or, as Nassim Taleb put it, the domestication of one’s emotions, not in pretending they don’t exist.",
         "author": "Ryan Holiday",
-        "book": "The Obstacle Is the Way",
-        "emotion": "overwhelm",
-        "positive" :0, 
-      "negative": 0
+        "book": "The Obstacle Is the Way"
+  
       },
       {
         "quote": "Stop pretending that what you’re going through is somehow special or unfair. Whatever trouble you’re having... is not some unique misfortune picked out especially for you. It just is what it is.",
         "author": "Ryan Holiday",
-        "book": "The Obstacle Is The Way",
-        "emotion": "self-pity",
-        "positive" :0, 
-      "negative": 0
+        "book": "The Obstacle Is The Way"
+  
       }, 
 
         {
           "quote": "You have power over your mind—not outside events. Realize this, and you will find strength.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "helplessness",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "The happiness of your life depends upon the quality of your thoughts.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "discontent",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "Waste no more time arguing about what a good man should be. Be one.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "procrastination",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "If it is not right, do not do it; if it is not true, do not say it.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "dishonesty",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "The impediment to action advances action. What stands in the way becomes the way.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "frustration",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "Nowhere can man find a quieter or more untroubled retreat than in his own soul.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "overwhelm",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "Dig within. Within is the fountain of good, and it will ever bubble up, if thou wilt ever dig.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "self-doubt",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "The best revenge is to be unlike him who performed the injury.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "resentment",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "To live is the rarest thing in the world. Most people exist, that is all.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "boredom",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "Our life is what our thoughts make it.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "confusion",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "He who lives in harmony with himself lives in harmony with the universe.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "turmoil",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "The soul becomes dyed with the color of its thoughts.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "negativity",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "Reject your sense of injury and the injury itself disappears.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "grudge",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "The universe is change; our life is what our thoughts make it.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "stagnation",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "It is not death that a man should fear, but he should fear never beginning to live.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "fear",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "Do not grieve, for all that you lose is not lost.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "grief",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "Be not careless in deeds, nor confused in words, nor rambling in thought.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "disorder",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "When you arise in the morning think of what a privilege it is to be alive, to think, to enjoy, to love…",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "apathy",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
         },
         {
           "quote": "Time is a river of passing events; a violent stream; for as soon as a thing is seen, it is carried away, and another comes in its place.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "impatience",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "If someone is able to show me that what I think or do is not right, I will gladly change.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "stubbornness",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "How much time he gains who does not look to see what his neighbour says or does or thinks.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "envy",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
 
         },
         {
           "quote": "The art of living is more like wrestling than dancing.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "ease",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "What we do now echoes in eternity.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "regret",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "Let not your mind run on what you lack as much as on what you have already.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "greed",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "A man's worth is no greater than the worth of his ambitions.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "aimlessness",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "The universe is transformation; life is opinion.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "rigidity",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "The best way to avenge yourself is to not be like that.",
           "author": "Marcus Aurelius",
-          "book": "Meditations",
-          "emotion": "revenge",
-          "positive" :0, 
-      "negative": 0
+          "book": "Meditations"
+    
         },
         {
           "quote": "Even loss and betrayal can bring us awakening.",
           "author": "Buddha",
-          "book": "—",
-          "emotion": "betrayal",
-          "positive" :0, 
-      "negative": 0
+          "book": "—"
+    
         }, 
         {
           "quote": "The task we must set for ourselves is not to feel secure, but to be able to tolerate insecurity.",
           "author": "Erich Fromm",
-          "book": "The Art of Loving",
-          "emotion": "insecurity",
-          "positive" :0, 
-      "negative": 0
+          "book": "The Art of Loving"
+    
         },
-        { "quote": "The primary cause of unhappiness is never the situation but your thoughts about it.", "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "discontent","positive" :0, 
-      "negative": 0 },
+        { "quote": "The primary cause of unhappiness is never the situation but your thoughts about it.", "author": "Eckhart Tolle", "book": "A New Earth"},
 
-        { "quote": "Acknowledging the good that you already have in your life is the foundation for all abundance.", "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "gratitude","positive" :0, 
-      "negative": 0},
+        { "quote": "Acknowledging the good that you already have in your life is the foundation for all abundance.", "author": "Eckhart Tolle", "book": "A New Earth"},
       
-        { "quote": "Life will give you whatever experience is most helpful for the evolution of your consciousness. How do you know this is the experience you need? Because this is the experience you are having at the moment.", "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "acceptance","positive" :0, 
-      "negative": 0 },
+        { "quote": "Life will give you whatever experience is most helpful for the evolution of your consciousness. How do you know this is the experience you need? Because this is the experience you are having at the moment.", "author": "Eckhart Tolle", "book": "A New Earth"},
       
-        { "quote": "Give up defining yourself - to yourself or to others. You won't die. You will come to life.", "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "self-doubt","positive" :0, 
-      "negative": 0 },
+        { "quote": "Give up defining yourself - to yourself or to others. You won't die. You will come to life.", "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "Sometimes letting things go is an act of far greater power than defending or hanging on.",
-         "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "release", "positive" :0, 
-      "negative": 0 },
+         "author": "Eckhart Tolle", "book": "A New Earth"},
       
-        { "quote": "Life is the dancer and you are the dance.", "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "flow","positive" :0, 
-      "negative": 0 },
+        { "quote": "Life is the dancer and you are the dance.", "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "Anything that you resent and strongly react to in another is also in you.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "resentment","positive" :0, 
-      "negative": 0 },
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "You can only lose something that you have, but you cannot lose something that you are.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "fear","positive" :0, 
-      "negative": 0 },
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "You do not become good by trying to be good, but by finding the goodness that is already within you, and allowing that goodness to emerge.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "self-worth","positive" :0, 
-      "negative": 0 },
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "What a liberation to realize that the 'voice in my head' is not who I am. Who am I then? The one who sees that.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "clarity" ,"positive" :0, 
-        "negative": 0},
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "Living up to an image that you have of yourself or that other people have of you is inauthentic living.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "self-deception","positive" :0, 
-        "negative": 0 },
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "Don't let a mad world tell you that success is anything other than a successful present moment.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "disillusionment" ,"positive" :0, 
-        "negative": 0},
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
-        { "quote": "Awareness is the greatest agent for change.", "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "awakening","positive" :0, 
-        "negative": 0 },
+        { "quote": "Awareness is the greatest agent for change.", "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "Don't Seek Happiness. If you seek it, you won't find it, because seeking is the antithesis of happiness.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "misguided" ,"positive" :0, 
-        "negative": 0},
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "Can you look without the voice in your head commenting, drawing conclusions, comparing, or trying to figure something out?", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "overthinking" ,"positive" :0, 
-        "negative": 0},
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "When you don't cover up the world with words and labels, a sense of the miraculous returns to your life.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "wonder" },
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
-        { "quote": "This is my secret, I don't mind what happens.", "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "detachment" ,"positive" :0, 
-        "negative": 0},
+        { "quote": "This is my secret, I don't mind what happens.", "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "Whenever you become anxious or stressed, outer purpose has taken over, and you lost sight of your inner purpose.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "stress","positive" :0, 
-        "negative": 0 },
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "To recognize one's own insanity is, of course, the arising of sanity, the beginning of healing and transcendence.",
-         "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "insight","positive" :0, 
-         "negative": 0 },
+         "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "You are not IN the universe, you ARE the universe, an intrinsic part of it.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "oneness" ,"positive" :0, 
-        "negative": 0},
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "Words reduce reality to something the human mind can grasp, which isn't very much.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "limitation" ,"positive" :0, 
-        "negative": 0},
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
-        { "quote": "Man made God in his own image.", "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "projection" ,"positive" :0, 
-        "negative": 0},
+        { "quote": "Man made God in his own image.", "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "Every complaint is a little story the mind makes up that you completely believe in.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "victimhood" ,"positive" :0, 
-        "negative": 0},
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "Authentic human interactions become impossible when you lose yourself in a role.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "disconnection" ,"positive" :0, 
-        "negative": 0},
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
-        { "quote": "Defining yourself through thought is limiting yourself.", "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "restriction" ,"positive" :0, 
-        "negative": 0},
+        { "quote": "Defining yourself through thought is limiting yourself.", "author": "Eckhart Tolle", "book": "A New Earth"},
       
-        { "quote": "Become conscious of being conscious.", "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "awareness" ,"positive" :0, 
-        "negative": 0},
+        { "quote": "Become conscious of being conscious.", "author": "Eckhart Tolle", "book": "A New Earth"},
       
-        { "quote": "You have so much to learn from your enemies.", "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "growth" ,"positive" :0, 
-        "negative": 0},
+        { "quote": "You have so much to learn from your enemies.", "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "It is when we are trapped in incessant streams of compulsive thinking that the universe really disintegrates for us.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "overwhelm" ,"positive" :0, 
-        "negative": 0},
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
         { "quote": "You become most powerful in whatever you do if the action is performed for its own sake rather than as a means to protect, enhance, or conform to your role identity.", 
-        "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "empowerment" ,"positive" :0, 
-        "negative": 0},
+        "author": "Eckhart Tolle", "book": "A New Earth"},
       
-        { "quote": "All complaints are illusions of the mind.", "author": "Eckhart Tolle", "book": "A New Earth", "emotion": "denial" ,"positive" :0, 
-        "negative": 0},
+        { "quote": "All complaints are illusions of the mind.", "author": "Eckhart Tolle", "book": "A New Earth"},
         { "quote": "Realize deeply that the present moment is all you have. Make the NOW the primary focus of your life.", 
-        "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "disconnection" ,"positive" :0, 
-        "negative": 0},
+        "author": "Eckhart Tolle", "book": "The Power of Now"},
 
   { "quote": "Time isn’t precious at all, because it is an illusion. What you perceive as precious is not time but the one point that is out of time: the Now. That is precious indeed.",
-   "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "regret","positive" :0, 
-        "negative": 0 },
+   "author": "Eckhart Tolle", "book": "The Power of Now"},
 
 
   { "quote": "Any action is often better than no action, especially if you have been stuck in an unhappy situation for a long time. If it is a mistake, at least you learn something, in which case it's no longer a mistake. If you remain stuck, you learn nothing.", 
-  "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "inaction" ,"positive" :0, 
-        "negative": 0},
+  "author": "Eckhart Tolle", "book": "The Power of Now"},
 
   { "quote": "Love is not selective, just as the light of the sun is not selective. It does not make one person special. It is not exclusive. Exclusivity is not the love of God but the 'love' of ego. However, the intensity with which true love is felt can vary. Only the degree of intensity with which it is felt differs.",
-   "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "isolation","positive" :0, 
-        "negative": 0 },
+   "author": "Eckhart Tolle", "book": "The Power of Now"},
 
   { "quote": "All negativity is caused by an accumulation of psychological time and denial of the present. Unease, anxiety, tension, stress, worry — all forms of fear — are caused by too much future, and not enough presence. Guilt, regret, resentment, grievances, sadness, bitterness, and all forms of nonforgiveness are caused by too much past, and not enough presence.", 
-  "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "overwhelm" ,"positive" :0, 
-        "negative": 0},
+  "author": "Eckhart Tolle", "book": "The Power of Now"},
 
-  { "quote": "It is not uncommon for people to spend their whole life waiting to start living.", "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "procrastination" ,"positive" :0, 
-        "negative": 0},
+  { "quote": "It is not uncommon for people to spend their whole life waiting to start living.", "author": "Eckhart Tolle", "book": "The Power of Now"},
 
-  { "quote": "If you get the inside right, the outside will fall into place. Primary reality is within; secondary reality without.", "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "confusion" ,"positive" :0, 
-        "negative": 0},
+  { "quote": "If you get the inside right, the outside will fall into place. Primary reality is within; secondary reality without.", "author": "Eckhart Tolle", "book": "The Power of Now" },
 
   { "quote": "See if you can catch yourself complaining, in either speech or thought, about a situation you find yourself in, what other people do or say, your surroundings, your life situation, even the weather. To complain is always nonacceptance of what is. It invariably carries an unconscious negative charge. When you complain, you make yourself into a victim. When you speak out, you are in your power. So change the situation by taking action or by speaking out if necessary or possible; leave the situation or accept it. All else is madness.", 
-  "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "victimhood" ,"positive" :0, 
-        "negative": 0},
+  "author": "Eckhart Tolle", "book": "The Power of Now"},
 
-  { "quote": "The past gives you an identity and the future holds the promise of salvation, of fulfillment in whatever form. Both are illusions.", "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "identity" ,"positive" :0, 
-        "negative": 0},
+  { "quote": "The past gives you an identity and the future holds the promise of salvation, of fulfillment in whatever form. Both are illusions.", "author": "Eckhart Tolle", "book": "The Power of Now"},
 
   { "quote": "As soon as you honor the present moment, all unhappiness and struggle dissolve, and life begins to flow with joy and ease. When you act out the present-moment awareness, whatever you do becomes imbued with a sense of quality, care, and love — even the most simple action.", 
-  "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "stress" ,"positive" :0, 
-        "negative": 0},
+  "author": "Eckhart Tolle", "book": "The Power of Now"},
 
   { "quote": "Don't look for peace. Don't look for any other state than the one you are in now; otherwise, you will set up inner conflict and unconscious resistance. Forgive yourself for not being at peace. The moment you completely accept your non-peace, your non-peace becomes transmuted into peace. Anything you accept fully will get you there, will take you into peace. This is the miracle of surrender.", 
-  "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "inner conflict" ,"positive" :0, 
-        "negative": 0},
+  "author": "Eckhart Tolle", "book": "The Power of Now"},
 
   { "quote": "If your mind carries a heavy burden of past, you will experience more of the same. The past perpetuates itself through lack of presence. The quality of your consciousness at this moment is what shapes the future.", 
-  "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "regret" ,"positive" :0, 
-        "negative": 0},
+  "author": "Eckhart Tolle", "book": "The Power of Now"},
 
-  { "quote": "Nothing has happened in the past; it happened in the Now. Nothing will ever happen in the future; it will happen in the Now.", "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "anxiety" ,"positive" :0, 
-        "negative": 0},
+  { "quote": "Nothing has happened in the past; it happened in the Now. Nothing will ever happen in the future; it will happen in the Now.", "author": "Eckhart Tolle", "book": "The Power of Now"},
 
-  { "quote": "What a caterpillar calls the end of the world we call a butterfly.", "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "fear" ,"positive" :0, 
-        "negative": 0},
+  { "quote": "What a caterpillar calls the end of the world we call a butterfly.", "author": "Eckhart Tolle", "book": "The Power of Now"},
 
-  { "quote": "Where there is anger there is always pain underneath.", "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "anger" ,"positive" :0, 
-        "negative": 0},
+  { "quote": "Where there is anger there is always pain underneath.", "author": "Eckhart Tolle", "book": "The Power of Now"},
 
   { "quote": "Watch any plant or animal and let it teach you acceptance of what is, surrender to the Now. Let it teach you Being. Let it teach you integrity — which means to be one, to be yourself, to be real. Let it teach you how to live and how to die, and how not to make living and dying into a problem.", 
-  "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "disconnection" ,"positive" :0, 
-        "negative": 0},
+  "author": "Eckhart Tolle", "book": "The Power of Now"},
 
   { "quote": "Once you have identified with some form of negativity, you do not want to let it go, and on a deeply unconscious level, you do not want positive change. It would threaten your identity as a depressed, angry or hard-done by person. You will then ignore, deny or sabotage the positive in your life. This is a common phenomenon. It is also insane.", 
-  "author": "Eckhart Tolle", "book": "The Power of Now", "emotion": "resistance" ,"positive" :0, 
-        "negative": 0},
+  "author": "Eckhart Tolle", "book": "The Power of Now"},
 
     {
       "quote": "When you feel discouraged, remember that your mind is your greatest tool, and you can choose what you focus on. Focus on the possibilities rather than the problems.",
       "author": "Eckhart Tolle",
-      "book": "The Power of Now",
-      "emotion": "discouraged"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "The Power of Now"
     },
     {
       "quote": "The greatest weapon against stress is our ability to choose one thought over another.",
       "author": "William James",
-      "book": "The Principles of Psychology",
-      "emotion": "overwhelm"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "The Principles of Psychology"
     },
     {
       "quote": "Anxiety is the handmaiden of creativity, because it pushes you to solve the unknown.",
       "author": "Ryan Holiday",
-      "book": "The Obstacle Is the Way",
-      "emotion": "anxiety"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "The Obstacle Is the Way"
     },
     {
       "quote": "The best way out is always through.",
       "author": "Robert Frost",
-      "book": "A Boy's Will",
-      "emotion": "stuck"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "A Boy's Will"
     },
     {
       "quote": "Restlessness is a condition of a mind that is unable to find peace within itself.",
       "author": "Eckhart Tolle",
-      "book": "The Power of Now",
-      "emotion": "restless"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "The Power of Now"
     },
     {
       "quote": "Resentment is like drinking poison and then hoping it will kill your enemies.",
       "author": "Nelson Mandela",
-      "book": "Long Walk to Freedom",
-      "emotion": "resentment"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "Long Walk to Freedom"
     },
     {
       "quote": "Resistance is often the path to the most profound transformation.",
       "author": "Ryan Holiday",
-      "book": "The Obstacle Is the Way",
-      "emotion": "resistance"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "The Obstacle Is the Way"
     },
     {
       "quote": "Confusion is the root of all ignorance, and ignorance is the root of all suffering.",
       "author": "Marcus Aurelius",
-      "book": "Meditations",
-      "emotion": "confusion"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "Meditations"
     },
     {
-      "quote": "Panic is an emotion that clouds rational thinking and impedes progress.",
+      "quote": "Panic is anat clouds rational thinking and impedes progress.",
       "author": "Eckhart Tolle",
-      "book": "A New Earth",
-      "emotion": "panic"
-      ,"positive" : 0, 
-        "negative": 0
+      "book": "A New Earth"
     },
     {
       "quote": "Negative emotions are the most insidious force in the human experience.",
       "author": "Ryan Holiday",
-      "book": "The Daily Stoic",
-      "emotion": "negative"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "The Daily Stoic"
     },
     {
       "quote": "Rumination keeps us trapped in the past, preventing us from moving forward.",
       "author": "Ryan Holiday",
-      "book": "The Obstacle Is the Way",
-      "emotion": "rumination"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "The Obstacle Is the Way"
     },
     {
       "quote": "Regret is a form of mental slavery.",
       "author": "Eckhart Tolle",
-      "book": "The Power of Now",
-      "emotion": "regret"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "The Power of Now"
     },
     {
       "quote": "The best way to deal with overwhelm is to take one small step forward.",
       "author": "Ryan Holiday",
-      "book": "Daily Stoic",
-      "emotion": "overwhelmed"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "Daily Stoic"
         
     },
     {
       "quote": "Powerlessness is an illusion; in truth, we always have the power to choose our response.",
       "author": "Eckhart Tolle",
-      "book": "The Power of Now",
-      "emotion": "powerlessness"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "The Power of Now"
     },
     {
       "quote": "Self-pity is a form of self-deception; it keeps us from seeing the reality of our situation.",
       "author": "Marcus Aurelius",
-      "book": "Meditations",
-      "emotion": "self-pity"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "Meditations"
     },
     {
       "quote": "Anger is a brief madness. Let it go before it takes over your life.",
       "author": "Marcus Aurelius",
-      "book": "Meditations",
-      "emotion": "anger"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "Meditations"
     },
     {
       "quote": "Helplessness is a belief, not a fact. It is your perception, not reality.",
       "author": "Ryan Holiday",
-      "book": "The Obstacle Is the Way",
-      "emotion": "helplessness"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "The Obstacle Is the Way"
     },
     {
       "quote": "Discontent is the root of growth. Without dissatisfaction, we would remain stagnant.",
       "author": "Marcus Aurelius",
-      "book": "Meditations",
-      "emotion": "discontent"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "Meditations"
     },
     {
       "quote": "Procrastination is a form of fear. It delays progress and strengthens doubt.",
       "author": "Ryan Holiday",
-      "book": "The Daily Stoic",
-      "emotion": "procrastination"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "The Daily Stoic"
     },
     {
       "quote": "Dishonesty to oneself is the beginning of all other forms of dishonesty.",
       "author": "Marcus Aurelius",
-      "book": "Meditations",
-      "emotion": "dishonesty"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "Meditations"
     },
     {
       "quote": "Frustration is the distance between what you expect and what you experience.",
       "author": "Ryan Holiday",
-      "book": "The Daily Stoic",
-      "emotion": "frustration"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "The Daily Stoic"
     },
     {
       "quote": "Self-doubt is the enemy of progress. Embrace courage and move forward.",
       "author": "Eckhart Tolle",
-      "book": "A New Earth",
-      "emotion": "self-doubt"
-      ,"positive" :0, 
-        "negative": 0
+      "book": "A New Earth"
     }
   
   
