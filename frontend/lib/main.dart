@@ -26,41 +26,41 @@ class _MentalHealthHomeState extends State<MentalHealthHome> {
   final TextEditingController _controller = TextEditingController();
   String _quote = "";
   bool _loading = false;
+Future<void> getQuote(String userInput) async {
+  setState(() {
+    _loading = true;
+    _quote = "";
+  });
 
-  Future<void> getQuote(String userInput) async {
-    setState(() {
-      _loading = true;
-      _quote = "";
-    });
+  try {
+    final response = await http.post(
+      // CHANGE THIS LINE: Call /get_quote instead of /embed
+      Uri.parse('http://127.0.0.1:8000/get_quote'), // <--- Corrected endpoint
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'text': userInput}),
+    );
 
-    try {
-      final response = await http.post(
-        Uri.parse('http://127.0.0.1:8000/docs'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({'text': userInput}),
-      );
-
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        setState(() {
-          _quote = data['quote'] ?? "Kein Zitat gefunden.";
-        });
-      } else {
-        setState(() {
-          _quote = "Serverfehler: ${response.statusCode}";
-        });
-      }
-    } catch (e) {
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      // Your server's /get_quote endpoint returns "quote_info"
       setState(() {
-        _quote = "Fehler: $e";
+        _quote = data['quote_info'] ?? "Kein Zitat gefunden."; // <--- Changed key to 'quote_info'
       });
-    } finally {
+    } else {
       setState(() {
-        _loading = false;
+        _quote = "Serverfehler: ${response.statusCode}\n${response.body}"; // Added response body for more detail
       });
     }
+  } catch (e) {
+    setState(() {
+      _quote = "Fehler: $e";
+    });
+  } finally {
+    setState(() {
+      _loading = false;
+    });
   }
-
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
