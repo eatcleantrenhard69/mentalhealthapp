@@ -7,7 +7,6 @@
 #include <cstring>   // Für strcpy (zum Kopieren von Strings)
 
 // Externe Bibliothek für JSON
-// Du musst sicherstellen, dass 'json.hpp' im selben Verzeichnis liegt
 // oder in einem vom Compiler gefundenen Include-Pfad.
 #include "json.hpp"
 
@@ -40,9 +39,8 @@ vector<QuoteData> all_quotes;
 // Ein Flag, das anzeigt, ob die Zitate bereits in 'all_quotes' geladen wurden.
 bool quotes_loaded = false;
 
-// --- Cosine Similarity Funktion ---
 
-// Diese Funktion bleibt unverändert, da sie bereits korrekt implementiert ist.
+
 float cosine_similarity(const vector<float>& a, const vector<float>& b) {
     float dot = 0.0, normA = 0.0, normB = 0.0;
     for (size_t i = 0; i < a.size(); i++) {
@@ -166,7 +164,6 @@ extern "C" EXPORT_DLL char* find_best_quote(float* user_embedding_arr, int embed
     // Alloziere Speicher für den String, der an Python zurückgegeben wird.
     // +1 für das Nullterminierungszeichen, das das Ende des C-Strings markiert.
     char* c_str_result = new char[result_str.length() + 1];
-    // Kopiere den C++-String in den alloziierten C-String-Speicher.
     strcpy(c_str_result, result_str.c_str());
 
     return c_str_result; // Gib den Zeiger auf den C-String zurück.
