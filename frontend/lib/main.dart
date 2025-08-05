@@ -1,6 +1,10 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'analytics_screen.dart';
+
 
 void main() => runApp(const MentalHealthApp());
 
@@ -13,8 +17,17 @@ class MentalHealthApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF6B73FF),
-          brightness: Brightness.light,
+          seedColor: const Color(0xFF2D1B14),
+          brightness: Brightness.dark,
+        ).copyWith(
+          primary: const Color(0xFF8B5A3C),
+          secondary: const Color(0xFF4A4A4A),
+          surface: const Color(0xFF1A1A1A),
+          background: const Color(0xFF0F0F0F),
+          onPrimary: const Color(0xFFF5F5DC),
+          onSecondary: const Color(0xFFE8E8E8),
+          onSurface: const Color(0xFFF5F5DC),
+          onBackground: const Color(0xFFF5F5DC),
         ),
       ),
       home: const MentalHealthHome(),
@@ -149,9 +162,9 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
             end: Alignment.bottomRight,
             stops: [0.0, 0.5, 1.0],
             colors: [
-              Color(0xFF667eea),
-              Color(0xFF764ba2),
-              Color(0xFFf093fb),
+              Color(0xFF2D1B14),
+              Color(0xFF1A1A1A),
+              Color(0xFF0F0F0F),
             ],
           ),
         ),
@@ -172,15 +185,15 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                         duration: const Duration(milliseconds: 300),
                         padding: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
-                          color: Colors.white24,
+                          color: const Color(0xFF2D1B14).withOpacity(0.3),
                           borderRadius: BorderRadius.circular(25),
                           border: Border.all(
-                            color: Colors.white38,
+                            color: const Color(0xFF8B5A3C).withOpacity(0.5),
                             width: 1.5,
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.white.withAlpha(51),
+                              color: const Color(0xFF8B5A3C).withOpacity(0.3),
                               blurRadius: 20,
                               spreadRadius: 5,
                             ),
@@ -189,7 +202,7 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                         child: const Icon(
                           Icons.psychology_outlined,
                           size: 45,
-                          color: Colors.white,
+                          color: Color(0xFFF5F5DC),
                         ),
                       ),
                       
@@ -197,16 +210,16 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                       
                       // Animated Title
                       const Text(
-                        "Mental Health",
+                        "Book finder",
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                          color: Color(0xFFF5F5DC),
                           letterSpacing: 1.5,
                           shadows: [
                             Shadow(
                               blurRadius: 10,
-                              color: Colors.black26,
+                              color: Colors.black87,
                               offset: Offset(2, 2),
                             ),
                           ],
@@ -214,10 +227,10 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                       ),
                       
                       const Text(
-                        "Companion",
+                        "I will find a book for you",
                         style: TextStyle(
                           fontSize: 20,
-                          color: Colors.white70,
+                          color: Color(0xFFD4AF37),
                           fontWeight: FontWeight.w300,
                           letterSpacing: 2,
                         ),
@@ -234,14 +247,14 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                   curve: Curves.easeInOut,
                   margin: const EdgeInsets.only(top: 20),
                   decoration: const BoxDecoration(
-                    color: Colors.white,
+                    color: Color(0xFF1A1A1A),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(35),
                       topRight: Radius.circular(35),
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black26,
+                        color: Colors.black87,
                         blurRadius: 20,
                         offset: Offset(0, -5),
                       ),
@@ -258,7 +271,7 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                             width: 60,
                             height: 5,
                             decoration: BoxDecoration(
-                              color: Colors.grey.shade300,
+                              color: const Color(0xFF8B5A3C),
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
@@ -271,11 +284,15 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                           duration: const Duration(milliseconds: 500),
                           padding: const EdgeInsets.all(24),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFF8F9FA),
+                            color: const Color(0xFF2D1B14),
                             borderRadius: BorderRadius.circular(25),
+                            border: Border.all(
+                              color: const Color(0xFF8B5A3C).withOpacity(0.3),
+                              width: 1,
+                            ),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.grey.shade200,
+                                color: Colors.black54,
                                 blurRadius: 15,
                                 offset: const Offset(0, 5),
                               ),
@@ -290,23 +307,23 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                                     padding: const EdgeInsets.all(10),
                                     decoration: BoxDecoration(
                                       gradient: const LinearGradient(
-                                        colors: [Color(0xFF667eea), Color(0xFF764ba2)],
+                                        colors: [Color(0xFF8B5A3C), Color(0xFF2D1B14)],
                                       ),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: const Icon(
                                       Icons.mood,
-                                      color: Colors.white,
+                                      color: Color(0xFFF5F5DC),
                                       size: 20,
                                     ),
                                   ),
                                   const SizedBox(width: 12),
                                   const Text(
-                                    "Wie fühlst du dich heute?",
+                                    "How do you feel today?",
                                     style: TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.w600,
-                                      color: Color(0xFF2C3E50),
+                                      color: Color(0xFFF5F5DC),
                                     ),
                                   ),
                                 ],
@@ -317,10 +334,10 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                               // Text Input
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  color: const Color(0xFF0F0F0F),
                                   borderRadius: BorderRadius.circular(18),
                                   border: Border.all(
-                                    color: Colors.grey.shade200,
+                                    color: const Color(0xFF8B5A3C).withOpacity(0.3),
                                     width: 1.5,
                                   ),
                                 ),
@@ -330,11 +347,12 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                                   style: const TextStyle(
                                     fontSize: 16,
                                     height: 1.5,
+                                    color: Color(0xFFF5F5DC),
                                   ),
                                   decoration: InputDecoration(
-                                    hintText: "Erzähl mir von deinen Gefühlen...",
+                                    hintText: "Tell me about your feelings",
                                     hintStyle: TextStyle(
-                                      color: Colors.grey.shade400,
+                                      color: const Color(0xFFF5F5DC).withOpacity(0.5),
                                       fontSize: 15,
                                     ),
                                     border: InputBorder.none,
@@ -351,14 +369,14 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                                 height: 60,
                                 decoration: BoxDecoration(
                                   gradient: const LinearGradient(
-                                    colors: [Color(0xFF667eea), Color(0xFF764ba2)],
+                                    colors: [Color(0xFF8B5A3C), Color(0xFF2D1B14)],
                                     begin: Alignment.centerLeft,
                                     end: Alignment.centerRight,
                                   ),
                                   borderRadius: BorderRadius.circular(18),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: const Color(0xFF667eea).withAlpha(102),
+                                      color: const Color(0xFF8B5A3C).withOpacity(0.4),
                                       blurRadius: 15,
                                       offset: const Offset(0, 8),
                                     ),
@@ -375,7 +393,7 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                                               width: 28,
                                               height: 28,
                                               child: CircularProgressIndicator(
-                                                color: Colors.white,
+                                                color: Color(0xFFF5F5DC),
                                                 strokeWidth: 2.5,
                                               ),
                                             )
@@ -384,14 +402,14 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                                               children: [
                                                 Icon(
                                                   Icons.auto_awesome,
-                                                  color: Colors.white,
+                                                  color: Color(0xFFF5F5DC),
                                                   size: 22,
                                                 ),
                                                 SizedBox(width: 10),
                                                 Text(
-                                                  "Zitat finden",
+                                                  "Get a quote and book",
                                                   style: TextStyle(
-                                                    color: Colors.white,
+                                                    color: Color(0xFFF5F5DC),
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.w600,
                                                     letterSpacing: 0.5,
@@ -423,18 +441,18 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
                                       colors: [
-                                        Color(0xFFE8F0FE),
-                                        Color(0xFFF3E5F5),
+                                        Color(0xFF2D1B14),
+                                        Color(0xFF1A1A1A),
                                       ],
                                     ),
                                     borderRadius: BorderRadius.circular(25),
                                     border: Border.all(
-                                      color: const Color(0xFF667eea).withAlpha(77),
+                                      color: const Color(0xFF8B5A3C).withOpacity(0.3),
                                       width: 1.5,
                                     ),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: const Color(0xFF667eea).withAlpha(51),
+                                        color: const Color(0xFF8B5A3C).withOpacity(0.2),
                                         blurRadius: 20,
                                         offset: const Offset(0, 10),
                                       ),
@@ -449,13 +467,13 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                                             padding: const EdgeInsets.all(12),
                                             decoration: BoxDecoration(
                                               gradient: const LinearGradient(
-                                                colors: [Color(0xFF667eea), Color(0xFF764ba2)],
+                                                colors: [Color(0xFF8B5A3C), Color(0xFF2D1B14)],
                                               ),
                                               borderRadius: BorderRadius.circular(15),
                                             ),
                                             child: const Icon(
                                               Icons.format_quote,
-                                              color: Colors.white,
+                                              color: Color(0xFFF5F5DC),
                                               size: 24,
                                             ),
                                           ),
@@ -465,7 +483,7 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                                             style: TextStyle(
                                               fontSize: 18,
                                               fontWeight: FontWeight.w600,
-                                              color: Color(0xFF2C3E50),
+                                              color: Color(0xFFF5F5DC),
                                             ),
                                           ),
                                         ],
@@ -480,7 +498,7 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                                             style: const TextStyle(
                                               fontSize: 18,
                                               height: 1.7,
-                                              color: Color(0xFF2C3E50),
+                                              color: Color(0xFFF5F5DC),
                                               fontWeight: FontWeight.w400,
                                             ),
                                           ),
@@ -506,14 +524,14 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                                     decoration: BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [
-                                          Colors.grey.shade100,
-                                          Colors.grey.shade50,
+                                          const Color(0xFF2D1B14).withOpacity(0.3),
+                                          const Color(0xFF1A1A1A).withOpacity(0.5),
                                         ],
                                       ),
                                       borderRadius: BorderRadius.circular(50),
                                       boxShadow: [
                                         BoxShadow(
-                                          color: Colors.grey.shade200,
+                                          color: Colors.black54,
                                           blurRadius: 15,
                                           offset: const Offset(0, 5),
                                         ),
@@ -522,17 +540,26 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                                     child: Icon(
                                       Icons.sentiment_satisfied_alt,
                                       size: 60,
-                                      color: Colors.grey.shade400,
+                                      color: const Color(0xFF8B5A3C).withOpacity(0.7),
                                     ),
                                   ),
                                   
                                   const SizedBox(height: 20),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => HabitTrackerApp()),
+                                      );
+                                    },
+                                    child: Text('View Analytics'),
+                                  ),
                                   
-                                  Text(
-                                    "Erzähl mir, wie du dich fühlst",
+                                  const Text(
+                                    "Tell me how you feel.",
                                     style: TextStyle(
                                       fontSize: 18,
-                                      color: Colors.grey.shade600,
+                                      color: Color(0xFFF5F5DC),
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -540,14 +567,15 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
                                   const SizedBox(height: 8),
                                   
                                   Text(
-                                    "Ich werde dir ein passendes Zitat finden",
+                                    "I will find a book for you",
                                     style: TextStyle(
                                       fontSize: 15,
-                                      color: Colors.grey.shade500,
+                                      color: const Color(0xFFD4AF37).withOpacity(0.8),
                                     ),
                                   ),
                                 ],
                               ),
+                              
                             ),
                           ),
                       ],
@@ -561,4 +589,5 @@ class _MentalHealthHomeState extends State<MentalHealthHome>
       ),
     );
   }
+  
 }
