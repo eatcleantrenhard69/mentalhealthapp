@@ -2,6 +2,8 @@
 // This is a complete Flutter app in one file
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';  // ADD THIS
+import 'dart:convert';  // ADD THIS
 
 // STEP 1: Main function - This is where the app starts
 void main() {
@@ -10,6 +12,8 @@ void main() {
 
 // STEP 2: Main App Widget - This sets up the overall app theme and structure
 class HabitTrackerApp extends StatelessWidget {
+  const HabitTrackerApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,6 +42,8 @@ class Habit {
 
 // STEP 4: Main Screen - This is a StatefulWidget because data can change
 class HabitScreen extends StatefulWidget {
+  const HabitScreen({super.key});
+
   @override
   _HabitScreenState createState() => _HabitScreenState();
 }
@@ -50,7 +56,61 @@ class _HabitScreenState extends State<HabitScreen> {
   // This map tracks daily values for each habit
   // Format: "habitId_date" -> hours spent
   Map<String, double> dailyValues = {};
-
+  @override
+  void initState() {
+  super.initState();
+  _loadData(); // Load saved data when app starts
+}
+// Save all data to phone storage
+Future<void> _saveData() async {
+  try {
+    final prefs = await SharedPreferences.getInstance();
+    
+    // Save habits as JSON
+    final habitsJson = habits.map((habit) => {
+      'id': habit.id,
+      'name': habit.name,
+      'category': habit.category,
+      'color': habit.color.value,
+    }).toList();
+    await prefs.setString('habits', jsonEncode(habitsJson));
+    
+    // Save daily values as JSON
+    await prefs.setString('dailyValues', jsonEncode(dailyValues));
+  } catch (e) {
+    print('Error saving data: $e');
+  }
+}
+// Load all data from phone storage
+Future<void> _loadData() async {
+  try {
+    final prefs = await SharedPreferences.getInstance();
+    
+    // Load habits
+    final habitsString = prefs.getString('habits');
+    if (habitsString != null) {
+      final habitsJson = jsonDecode(habitsString) as List;
+      habits = habitsJson.map((habitData) => Habit(
+        id: habitData['id'],
+        name: habitData['name'],
+        category: habitData['category'],
+        color: Color(habitData['color']),
+      )).toList();
+    }
+    
+    // Load daily values
+    final valuesString = prefs.getString('dailyValues');
+    if (valuesString != null) {
+      final valuesMap = jsonDecode(valuesString) as Map<String, dynamic>;
+      dailyValues = valuesMap.map((key, value) => 
+        MapEntry(key, (value as num).toDouble()));
+    }
+    
+    if (mounted) setState(() {});
+  } catch (e) {
+    print('Error loading data: $e');
+  }
+}
   // STEP 6: Helper function to get today's date as a string
   String getTodayKey() {
     final now = DateTime.now();
@@ -74,6 +134,7 @@ class _HabitScreenState extends State<HabitScreen> {
     setState(() {
       habits.add(habit); // Add to the list
     });
+    _saveData();
   }
 
   // STEP 9: Function to remove a habit
@@ -83,18 +144,92 @@ class _HabitScreenState extends State<HabitScreen> {
       // Also remove all daily values for this habit
       dailyValues.removeWhere((key, value) => key.startsWith(habitId));
     });
+    _saveData();
   }
 
   // STEP 10: Function to update daily value for a habit
   void updateDailyValue(String habitId, double value) {
     final key = getDailyKey(habitId, getTodayKey());
+    final oldValue = dailyValues[key] ?? 0.0;
+    
     setState(() {
       if (value <= 0) {
         dailyValues.remove(key); // Remove if zero or negative
       } else {
         dailyValues[key] = value; // Store the value
+        
+        // Show celebration when user first completes habit for the day
+        if (oldValue == 0.0 && value > 0) {
+          _showCelebration(context);
+        }
       }
     });
+    _saveData();
+  }
+
+  // Show dopamine-triggering celebration
+  void _showCelebration(BuildContext context) {
+    final overlay = Overlay.of(context);
+    late OverlayEntry overlayEntry;
+    
+    overlayEntry = OverlayEntry(
+      builder: (context) => AnimatedOpacity(
+        opacity: 1.0,
+        duration: Duration(milliseconds: 300),
+        child: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Center(
+            child: TweenAnimationBuilder<double>(
+              tween: Tween(begin: 0.0, end: 1.0),
+              duration: Duration(milliseconds: 600),
+              curve: Curves.elasticOut,
+              builder: (context, value, child) {
+                return Transform.scale(
+                  scale: value,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.green.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 20,
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.check_circle, color: Colors.white, size: 24),
+                        SizedBox(width: 8),
+                        Text(
+                          'Great job! Keep it up! 🔥',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+              onEnd: () {
+                Future.delayed(Duration(milliseconds: 1500), () {
+                  overlayEntry.remove();
+                });
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+    
+    overlay.insert(overlayEntry);
   }
 
   // STEP 11: Function to get today's value for a habit
@@ -102,162 +237,270 @@ class _HabitScreenState extends State<HabitScreen> {
     final key = getDailyKey(habitId, getTodayKey());
     return dailyValues[key] ?? 0.0; // Return 0 if no value stored
   }
-  // NEW: Get value for a specific habit on a specific date
-double getValueForDate(String habitId, DateTime date) {
-  final dateKey = '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
-  final key = getDailyKey(habitId, dateKey);
-  return dailyValues[key] ?? 0.0;
-}
 
-// NEW: Get color intensity based on hours (0-4+ hours)
-Color getGridColor(double value, Color baseColor) {
-  if (value == 0) return Colors.grey.shade800;
-  if (value < 1) return baseColor.withOpacity(0.3);
-  if (value < 2) return baseColor.withOpacity(0.5);
-  if (value < 3) return baseColor.withOpacity(0.7);
-  return baseColor;
-}
+  // NEW: Get value for a specific habit on a specific date
+  double getValueForDate(String habitId, DateTime date) {
+    final dateKey = '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+    final key = getDailyKey(habitId, dateKey);
+    return dailyValues[key] ?? 0.0;
+  }
+
+  // NEW: Get color intensity based on hours (0-4+ hours)
+  Color getGridColor(double value, Color baseColor) {
+    if (value == 0) return Colors.grey.shade800;
+    if (value < 1) return baseColor.withOpacity(0.3);
+    if (value < 2) return baseColor.withOpacity(0.5);
+    if (value < 3) return baseColor.withOpacity(0.7);
+    return baseColor;
+  }
 
   // STEP 12: Build the main UI
- @override
-Widget build(BuildContext context) {
-  return DefaultTabController(
-    length: 2,
-    child: Scaffold(
-      appBar: AppBar(
-        title: Text('My Habits'),
-        backgroundColor: Colors.blueGrey.shade900,
-        bottom: TabBar(
-          tabs: [
-            Tab(icon: Icon(Icons.list), text: 'Habits'),
-            Tab(icon: Icon(Icons.grid_view), text: 'Grid'),
-          ],
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('My Habits'),
+          backgroundColor: Colors.blueGrey.shade900,
+          bottom: TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.list), text: 'Habits'),
+              Tab(icon: Icon(Icons.grid_view), text: 'Grid'),
+            ],
+          ),
         ),
-      ),
-      body: Container(
-        color: Colors.grey.shade900,
-        child: TabBarView(
-          children: [
-            // First tab - existing habits list
-            habits.isEmpty ? _buildEmptyState() : _buildHabitsList(),
-            // Second tab - new grid view
-            _buildGridView(),
-          ],
+        body: Container(
+          color: Colors.grey.shade900,
+          child: TabBarView(
+            children: [
+              // First tab - existing habits list
+              habits.isEmpty ? _buildEmptyState() : _buildHabitsList(),
+              // Second tab - new grid view
+              _buildGridView(),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _showAddHabitDialog,
-        child: Icon(Icons.add),
-        backgroundColor: Colors.blue,
-      ),
-    ),
-  );
-}
-// NEW: Build the grid view
-Widget _buildGridView() {
-  if (habits.isEmpty) {
-    return Center(
-      child: Text(
-        'Add some habits first!',
-        style: TextStyle(color: Colors.white70, fontSize: 18),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _showAddHabitDialog,
+          backgroundColor: Colors.blue,
+          child: Icon(Icons.add),
+        ),
       ),
     );
   }
 
-  return SingleChildScrollView(
-    padding: EdgeInsets.all(16),
-    child: Column(
-      children: habits.map((habit) => _buildHabitGrid(habit)).toList(),
-    ),
-  );
-}
+  // NEW: Build the grid view
+  Widget _buildGridView() {
+    if (habits.isEmpty) {
+      return Center(
+        child: Text(
+          'Add some habits first!',
+          style: TextStyle(color: Colors.white70, fontSize: 18),
+        ),
+      );
+    }
 
-// NEW: Build grid for individual habit
-Widget _buildHabitGrid(Habit habit) {
-  final now = DateTime.now();
-  final startDate = now.subtract(Duration(days: 364)); // Last 365 days
-  
-  return Card(
-    color: Colors.grey.shade800,
-    margin: EdgeInsets.only(bottom: 20),
-    child: Padding(
+    return SingleChildScrollView(
       padding: EdgeInsets.all(16),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Habit header
-          Row(
-            children: [
-              Container(
-                width: 16,
-                height: 16,
-                decoration: BoxDecoration(
-                  color: habit.color,
-                  shape: BoxShape.circle,
-                ),
-              ),
-              SizedBox(width: 8),
-              Text(
-                habit.name,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 12),
-          
-          // Grid
-          Container(
-            height: 120,
-            child: GridView.builder(
-              scrollDirection: Axis.horizontal,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 7, // 7 days per week
-                mainAxisSpacing: 2,
-                crossAxisSpacing: 2,
-              ),
-              itemCount: 365,
-              itemBuilder: (context, index) {
-                final date = startDate.add(Duration(days: index));
-                final value = getValueForDate(habit.id, date);
-                return Container(
-                  decoration: BoxDecoration(
-                    color: getGridColor(value, habit.color),
-                    borderRadius: BorderRadius.circular(2),
-                  ),
-                );
-              },
-            ),
-          ),
-          
-          // Legend
-          SizedBox(height: 8),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text('Less', style: TextStyle(color: Colors.white70, fontSize: 12)),
-              SizedBox(width: 4),
-              ...List.generate(5, (i) => Container(
-                width: 10,
-                height: 10,
-                margin: EdgeInsets.only(left: 2),
-                decoration: BoxDecoration(
-                  color: i == 0 ? Colors.grey.shade800 : habit.color.withOpacity(0.2 + (i * 0.2)),
-                  borderRadius: BorderRadius.circular(2),
-                ),
-              )),
-              SizedBox(width: 4),
-              Text('More', style: TextStyle(color: Colors.white70, fontSize: 12)),
-            ],
-          ),
-        ],
+        children: habits.map((habit) => _buildHabitGrid(habit)).toList(),
       ),
-    ),
-  );
-}
+    );
+  }
+
+  // NEW: Build grid for individual habit
+  Widget _buildHabitGrid(Habit habit) {
+    final now = DateTime.now();
+    final startDate = now.subtract(Duration(days: 89)); // Last 90 days (more visible)
+    
+    return Card(
+      color: Colors.grey.shade800,
+      margin: EdgeInsets.only(bottom: 20),
+      child: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Habit header
+            Row(
+              children: [
+                Container(
+                  width: 16,
+                  height: 16,
+                  decoration: BoxDecoration(
+                    color: habit.color,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                SizedBox(width: 8),
+                Text(
+                  habit.name,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Spacer(),
+                Text(
+                  'Last 90 days',
+                  style: TextStyle(color: Colors.white70, fontSize: 12),
+                ),
+              ],
+            ),
+            SizedBox(height: 16),
+            
+            // Grid of circles
+            SizedBox(
+              height: 200,
+              child: GridView.builder(
+                scrollDirection: Axis.horizontal,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 6, // 10 rows
+                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 8,
+                ),
+                itemCount: 90,
+                itemBuilder: (context, index) {
+                  final date = startDate.add(Duration(days: index));
+                  final value = getValueForDate(habit.id, date);
+                  final isToday = _isSameDay(date, now);
+                  final isCompleted = value > 0;
+                  
+                  return _buildDayCircle(
+                    isCompleted: isCompleted,
+                    isToday: isToday,
+                    color: habit.color,
+                    value: value,
+                    date: date,
+                  );
+                },
+              ),
+            ),
+            
+            // Stats and Legend
+            SizedBox(height: 12),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // Streak counter
+                Text(
+                  'Current streak: ${_getCurrentStreak(habit.id)} days',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                // Legend
+                Row(
+                  children: [
+                    _buildLegendItem('Empty', Colors.grey.shade700),
+                    SizedBox(width: 8),
+                    _buildLegendItem('Done', habit.color),
+                    SizedBox(width: 8),
+                    _buildLegendItem('Today', Colors.white),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Build individual day circle with animations
+  Widget _buildDayCircle({
+    required bool isCompleted,
+    required bool isToday,
+    required Color color,
+    required double value,
+    required DateTime date,
+  }) {
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 300),
+      curve: Curves.elasticOut,
+      width: 12,
+      height: 12,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: isCompleted 
+          ? color
+          : Colors.grey.shade700,
+        border: isToday 
+          ? Border.all(color: Colors.white, width: 2)
+          : null,
+        boxShadow: isCompleted ? [
+          BoxShadow(
+            color: color.withOpacity(0.6),
+            spreadRadius: 1,
+            blurRadius: 3,
+          )
+        ] : null,
+      ),
+      child: isCompleted 
+        ? AnimatedScale(
+            scale: isToday ? 1.2 : 1.0,
+            duration: Duration(milliseconds: 200),
+            child: Icon(
+              Icons.check,
+              size: 8,
+              color: Colors.white,
+            ),
+          )
+        : null,
+    );
+  }
+
+  // Build legend item
+  Widget _buildLegendItem(String label, Color color) {
+    return Row(
+      children: [
+        Container(
+          width: 8,
+          height: 8,
+          decoration: BoxDecoration(
+            color: color,
+            shape: BoxShape.circle,
+          ),
+        ),
+        SizedBox(width: 4),
+        Text(
+          label,
+          style: TextStyle(color: Colors.white70, fontSize: 10),
+        ),
+      ],
+    );
+  }
+
+  // Check if two dates are the same day
+  bool _isSameDay(DateTime date1, DateTime date2) {
+    return date1.year == date2.year &&
+           date1.month == date2.month &&
+           date1.day == date2.day;
+  }
+
+  // Get current streak for a habit
+  int _getCurrentStreak(String habitId) {
+    final now = DateTime.now();
+    int streak = 0;
+    
+    for (int i = 0; i < 90; i++) {
+      final date = now.subtract(Duration(days: i));
+      final value = getValueForDate(habitId, date);
+      
+      if (value > 0) {
+        streak++;
+      } else {
+        break;
+      }
+    }
+    
+    return streak;
+  }
+
   // STEP 13: Build empty state (when no habits exist)
   Widget _buildEmptyState() {
     return Center(
@@ -356,7 +599,7 @@ Widget _buildHabitGrid(Habit habit) {
                 // Decrease button
                 IconButton(
                   onPressed: () {
-                    updateDailyValue(habit.id, todayValue - 0.5);
+                    updateDailyValue(habit.id, todayValue - 0.1);
                   },
                   icon: Icon(Icons.remove_circle_outline),
                   color: Colors.white70,
@@ -381,7 +624,7 @@ Widget _buildHabitGrid(Habit habit) {
                 // Increase button
                 IconButton(
                   onPressed: () {
-                    updateDailyValue(habit.id, todayValue + 0.5);
+                    updateDailyValue(habit.id, todayValue + 0.1);
                   },
                   icon: Icon(Icons.add_circle_outline),
                   color: Colors.white70,
